@@ -42,32 +42,32 @@ All executable source code is placed under the src/ folder.
 The code can be installed and executed with:
 
 ```bash
-git clone <repo-link>
-cd project-repo
+git clone https://github.com/Joohhnnyyy/ennovateX.git
+cd ennovateX
 pip install -r requirements.txt
-python src/inference.py
+python src/inference.py --mode text --input "Your text here"
 ```
 
 ### Models Used
 
 **Text Model**: sentence-transformers/all-MiniLM-L6-v2
 
-👉 `https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2`
+`https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2`
 
 **Image Model**: openai/clip-vit-base-patch32
 
-👉 `https://huggingface.co/openai/clip-vit-base-patch32`
+`https://huggingface.co/openai/clip-vit-base-patch32`
 
 **Audio Model (ASR)**: openai/whisper-small
 
-👉 `https://huggingface.co/openai/whisper-small`
+`https://huggingface.co/openai/whisper-small`
 
 ### Models Published
 
 Currently, no new model has been published.
 
-Planned upload: Multimodal Fusion Embedding Model → will be published here:
-👉 `https://huggingface.co/username/multimodal-fusion-embedding-v1`
+Planned upload: Multimodal Fusion Embedding Model will be published here:
+`https://huggingface.co/username/multimodal-fusion-embedding-v1`
 
 (Open-source under Apache-2.0 license once finalized.)
 
@@ -75,19 +75,19 @@ Planned upload: Multimodal Fusion Embedding Model → will be published here:
 
 **Audio Dataset (Main)**: rakshya34/filtered_voice_english_v1
 
-👉 `https://huggingface.co/datasets/rakshya34/filtered_voice_english_v1`
+`https://huggingface.co/datasets/rakshya34/filtered_voice_english_v1`
 
 **Audio Dataset (Earlier Test)**: sifat1221/english_voice_256
 
-👉 `https://huggingface.co/datasets/sifat1221/english_voice_256`
+`https://huggingface.co/datasets/sifat1221/english_voice_256`
 
 **Image Dataset**: CIFAR-10
 (external dataset, not on Hugging Face)
-👉 `https://www.cs.toronto.edu/~kriz/cifar.html`
+`https://www.cs.toronto.edu/~kriz/cifar.html`
 
 **Text Dataset**: ag_news
 
-👉 `https://huggingface.co/datasets/ag_news`
+`https://huggingface.co/datasets/ag_news`
 
 ### Datasets Published
 

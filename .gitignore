@@ -1,0 +1,73 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+src/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Backend folder (large files)
+src/backend/
+
+# Backend model files and cache
+backend/models/
+src/backend/models/
+backend/lora-bart-summarizer/
+src/backend/lora-bart-summarizer/
+backend/__pycache__/
+backend/app/__pycache__/
+src/backend/__pycache__/
+src/backend/app/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Large model files
+*.safetensors
+*.bin
+*.onnx
+*.pt
+*.pth
+
+# Audio/Video files
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mov

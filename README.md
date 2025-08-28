@@ -15,31 +15,88 @@ A single, powerful multimodal foundation model can serve as an unchangeable firm
 - Siddhant Sinha
 
 ## Demo Video Link
-[Demo Video](https://youtube.com/watch?v=your-video-id) *(Upload the Demo video on Youtube as a public or unlisted video and share the link)*
+[Demo Video](https://youtu.be/CxQSxXKlcMQ)
 
 ## Project Artefacts
 
 ### Technical Documentation
-📁 **[Docs](./docs/)** - All technical details are documented in markdown files inside the docs folder
+
+All technical documentation is included inside the docs/ folder of the repository.
+
+- **docs/overview.md** - Project summary & objectives
+- **docs/architecture.md** - Model architecture, fusion pipeline, and workflows
+- **docs/setup.md** - Installation guide and environment requirements
+- **docs/usage.md** - How to run inference and extend the project
+- **docs/limitations_future.md** - Limitations, challenges, and future work
 
 ### Source Code
-📁 **[Source](./src/)** - Complete source code capable of successful installation and execution on intended platforms
+
+All executable source code is placed under the src/ folder.
+
+- **src/models/** - Embedding models wrapper (Text, Image, Audio with Whisper)
+- **src/fusion/** - Fusion functions and utilities
+- **src/inference.py** - Script for testing with text, image, and audio inputs
+- **src/train.py** - Script for fine-tuning and experimentation
+- **src/utils/** - Helper functions (preprocessing, evaluation, logging)
+
+The code can be installed and executed with:
+
+```bash
+git clone <repo-link>
+cd project-repo
+pip install -r requirements.txt
+python src/inference.py
+```
 
 ### Models Used
-🤖 **Hugging Face Models:**
-- [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) - Text Summarization
-- [Salesforce/blip-image-captioning-base](https://huggingface.co/Salesforce/blip-image-captioning-base) - Image Captioning
-- [openai/whisper-base](https://huggingface.co/openai/whisper-base) - Audio Speech Recognition
+
+**Text Model**: sentence-transformers/all-MiniLM-L6-v2
+
+👉 `https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2`
+
+**Image Model**: openai/clip-vit-base-patch32
+
+👉 `https://huggingface.co/openai/clip-vit-base-patch32`
+
+**Audio Model (ASR)**: openai/whisper-small
+
+👉 `https://huggingface.co/openai/whisper-small`
 
 ### Models Published
-*(In case you have developed a model as a part of your solution, upload it on Hugging Face under appropriate open source license and add the link here)*
+
+Currently, no new model has been published.
+
+Planned upload: Multimodal Fusion Embedding Model → will be published here:
+👉 `https://huggingface.co/username/multimodal-fusion-embedding-v1`
+
+(Open-source under Apache-2.0 license once finalized.)
 
 ### Datasets Used
-📊 **Public Datasets:**
-*(Links to all datasets used in the project under Creative Commons, Open Data Commons, or equivalent licenses)*
+
+**Audio Dataset (Main)**: rakshya34/filtered_voice_english_v1
+
+👉 `https://huggingface.co/datasets/rakshya34/filtered_voice_english_v1`
+
+**Audio Dataset (Earlier Test)**: sifat1221/english_voice_256
+
+👉 `https://huggingface.co/datasets/sifat1221/english_voice_256`
+
+**Image Dataset**: CIFAR-10
+(external dataset, not on Hugging Face)
+👉 `https://www.cs.toronto.edu/~kriz/cifar.html`
+
+**Text Dataset**: ag_news
+
+👉 `https://huggingface.co/datasets/ag_news`
 
 ### Datasets Published
-*(Links to all datasets created for the project and published on Hugging Face under Creative Commons, Open Data Commons, or equivalent license)*
+
+Currently, no new dataset has been published.
+
+Planned upload: Synthetic Multimodal Dataset → will be published here:
+👉 `https://huggingface.co/datasets/username/multimodal-synthetic-v1`
+
+(Open-source under CC-BY-4.0 license once finalized.)
 
 ## Project Overview
 

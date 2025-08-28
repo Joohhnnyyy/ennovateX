@@ -94,7 +94,7 @@ Planned upload: Multimodal Fusion Embedding Model will be published here:
 Currently, no new dataset has been published.
 
 Planned upload: Synthetic Multimodal Dataset → will be published here:
-👉 `https://huggingface.co/datasets/username/multimodal-synthetic-v1`
+ `https://huggingface.co/datasets/username/multimodal-synthetic-v1`
 
 (Open-source under CC-BY-4.0 license once finalized.)
 

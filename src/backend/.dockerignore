@@ -1,0 +1,1098 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PYMANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node_modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Application specific
+uploads/
+cache/
+models/
+*.pkl
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.tflite
+*.pb
+
+# Hugging Face cache
+hf_cache/
+transformers_cache/
+
+# Model checkpoints
+checkpoints/
+saved_models/
+weights/
+
+# Data files
+data/
+datasets/
+*.csv
+*.json
+*.jsonl
+*.parquet
+*.arrow
+*.feather
+
+# Large files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+*.rar
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+*.md
+docs/
+
+# Configuration files (keep only templates)
+*.conf
+*.ini
+*.yaml
+*.yml
+!docker-compose*.yml
+
+# Scripts
+scripts/
+*.sh
+*.bat
+*.ps1
+
+# Kubernetes
+*.k8s.yaml
+kustomization.yaml
+
+# Terraform
+*.tf
+*.tfvars
+*.tfstate*
+
+# Ansible
+*.ansible.yml
+playbooks/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+Jenkinsfile
+
+# Monitoring
+prometheus.yml
+grafana/
+
+# Security
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+secrets/
+
+# Development tools
+.pre-commit-config.yaml
+.flake8
+.black
+.isort.cfg
+pyproject.toml
+setup.cfg
+tox.ini
+
+# Notebooks
+*.ipynb
+notebooks/
+
+# Experiments
+experiments/
+results/
+outputs/
+
+# Temporary ML files
+*.h5
+*.hdf5
+*.npz
+*.npy
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Weights & Biases
+wandb/
+
+# TensorBoard
+tensorboard_logs/
+runs/
+
+# DVC
+.dvc/
+*.dvc
+
+# Local development
+.local/
+local/
+dev/
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# Benchmarks
+benchmarks/
+perf/
+
+# Profiling
+*.prof
+*.profile
+
+# Memory dumps
+*.hprof
+*.dump
+
+# Core dumps
+core.*
+
+# Application logs
+app.log
+error.log
+access.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache directories
+.cache/
+__pycache__/
+.pytest_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv*/
+env*/
+.venv*/
+.env*/
+
+# IDE files
+*.swp
+*.swo
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Backup and temporary files
+*~
+*.bak
+*.tmp
+*.temp
+*.old
+*.orig
+*.rej
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.rar
+*.7z
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.aac
+*.wma
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.ico
+*.webp
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.o
+*.obj
+
+# Package files
+*.deb
+*.rpm
+*.pkg
+*.dmg
+*.msi
+*.appx
+
+# Mobile app files
+*.apk
+*.ipa
+*.aab
+
+# Font files
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# 3D model files
+*.obj
+*.fbx
+*.dae
+*.3ds
+*.blend
+*.max
+
+# CAD files
+*.dwg
+*.dxf
+*.step
+*.stp
+*.iges
+*.igs
+
+# Document files
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.odt
+*.ods
+*.odp
+
+# E-book files
+*.epub
+*.mobi
+*.azw
+*.azw3
+
+# Disk image files
+*.iso
+*.img
+*.dmg
+*.vdi
+*.vmdk
+*.qcow2
+
+# Game files
+*.unity3d
+*.unitypackage
+*.pak
+*.vpk
+*.bsp
+*.wad
+
+# Blockchain files
+*.dat
+*.blk
+*.wallet
+
+# Scientific data
+*.mat
+*.nc
+*.cdf
+*.fits
+*.hdf
+*.hdf4
+*.hdf5
+
+# GIS files
+*.shp
+*.shx
+*.dbf
+*.prj
+*.kml
+*.kmz
+*.gpx
+*.geojson
+
+# Simulation files
+*.sim
+*.out
+*.res
+*.log
+*.dat
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Lock files
+*.lock
+package-lock.json
+yarn.lock
+Pipfile.lock
+poetry.lock
+composer.lock
+Gemfile.lock
+
+# Dependency directories
+node_modules/
+vendor/
+bower_components/
+jspm_packages/
+
+# Build tools
+.grunt/
+.gulp/
+.webpack/
+.rollup/
+.parcel/
+.next/
+.nuxt/
+.vuepress/
+.serverless/
+.fusebox/
+.dynamodb/
+
+# Editor swap files
+*.swp
+*.swo
+*.swn
+*.un~
+
+# Vim session files
+Session.vim
+
+# Emacs backup files
+*~
+\#*\#
+.\#*
+
+# Kate backup files
+*.kate-swp
+*.kateconfig
+
+# Gedit backup files
+*~
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.pydevproject
+.cproject
+.autotools
+.factorypath
+.buildpath
+.target
+.tern-project
+.texlipse
+.springBeans
+.recommenders/
+.apt_generated/
+.cache-main
+.scala_dependencies
+.worksheet
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# CodeBlocks
+*.depend
+*.layout
+*.cbp
+
+# Dev-C++
+*.dev
+
+# KDevelop
+*.kdev4
+.kdev4/
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+*.moc.cpp
+*.qm
+*.prl
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace/
+
+# Android Studio
+.gradle/
+build/
+.navigation/
+captures/
+output.json
+*.iml
+.idea/
+local.properties
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# SBT
+.history
+.cache
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.scala_dependencies
+.worksheet
+
+# Metals
+.metals/
+.bloop/
+project/.bloop/
+
+# Mill
+out/
+
+# Bazel
+bazel-*
+
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+
+# Meson
+builddir/
+
+# Autotools
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+Makefile.in
+config.h.in
+config.h
+config.log
+config.status
+libtool
+.deps/
+.libs/
+
+# pkg-config
+*.pc
+
+# Doxygen
+html/
+latex/
+
+# Sphinx
+_build/
+_static/
+_templates/
+
+# MkDocs
+site/
+
+# GitBook
+_book/
+
+# mdBook
+book/
+
+# Asciidoctor
+*.html
+
+# FusionScript
+*.fscache
+*.fsproj.user
+*.fsproj.user.*
+
+# MonoDevelop
+*.userprefs
+
+# Xamarin
+*.xamarin
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+[Aa]ssets/AssetStoreTools*
+[Aa]ssets/Plugins/Editor/JetBrains*
+.vsconfig
+
+# Unreal Engine
+Bindings/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vscode/
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+# Godot
+.import/
+export.cfg
+export_presets.cfg
+.mono/
+data_*/
+
+# Construct 3
+*.c3p
+*.caproj
+*.uistate.xml
+
+# GameMaker Studio
+*.yyp
+*.yy
+*.yymp
+*.gml
+*.gmx
+*.project.gmx
+
+# RPG Maker
+*.rpgproject
+*.rxdata
+*.rvdata
+*.rvdata2
+
+# Ren'Py
+*.rpyc
+*.rpymc
+*.rpa
+
+# Twine
+*.tw2
+*.twee
+
+# Inform 7
+*.inform
+*.i7x
+
+# TADS
+*.t3
+*.t3m
+*.t3v
+*.t3x
+
+# Z-machine
+*.z1
+*.z2
+*.z3
+*.z4
+*.z5
+*.z6
+*.z7
+*.z8
+
+# Glulx
+*.ulx
+*.gblorb
+*.blb
+
+# Hugo
+*.hex
+
+# Alan
+*.a3c
+*.a3r
+
+# Level 9
+*.sna
+*.l9
+
+# Magnetic Scrolls
+*.mag
+
+# Scott Adams
+*.dat
+
+# Comprehend
+*.c64
+
+# Quill
+*.sna
+
+# PAW
+*.sna
+
+# SWAN
+*.sna
+
+# AdvSys
+*.dat
+
+# JACL
+*.jacl
+*.j2
+
+# ADRIFT
+*.taf
+*.blorb
+
+# Quest
+*.quest
+*.aslx
+
+# Squiffy
+*.squiffy
+
+# Ink
+*.ink
+*.json
+
+# Chatmapper
+*.cmp
+
+# Articy Draft
+*.adrft
+
+# Yarn
+*.yarn
+*.yarnc
+
+# Fungus
+*.flowchart
+
+# Inky
+*.ink
+
+# Texture files
+*.dds
+*.tga
+*.exr
+*.hdr
+*.pfm
+*.psd
+*.xcf
+*.kra
+*.ora
+*.clip
+*.sai
+*.mdp
+*.pdn
+*.rif
+*.psp
+*.pspimage
+*.pspbrush
+*.pspframe
+*.pspmask
+*.pspselection
+*.psptube
+*.pspscript
+*.psppalette
+*.pspgradient
+*.psppattern
+*.pspmaterial
+*.pspshape
+*.psppicturetube
+*.pspdeformation
+*.pspmesh
+*.psppreset
+*.pspworkspace
+*.pspswatch
+*.pspstyle
+*.pspfont
+*.pspbrushvariant
+*.pspbrushcategory
+*.pspbrushpresets
+*.pspbrushes
+*.pspnozzles
+*.psppaperTextures
+*.psppatterns
+*.pspgradients
+*.pspmaterials
+*.pspshapes
+*.psppicturetubes
+*.pspdeformations
+*.pspmeshes
+*.psppresets
+*.pspworkspaces
+*.pspswatches
+*.pspstyles
+*.pspfonts
+*.pspbrushvariants
+*.pspbrushcategories
+*.pspbrushpresets

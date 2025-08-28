@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      target: development
+    environment:
+      - DEBUG=true
+      - RELOAD=true
+      - LOG_LEVEL=DEBUG
+      - DEV_MODE=true
+    volumes:
+      - .:/app:cached
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./uploads:/app/uploads
+      - ./cache:/app/cache
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    ports:
+      - "8000:8000"
+      - "8888:8888"  # For Jupyter if needed
+
+  # Development database with exposed port for external access
+  db:
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=ennovatex_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+
+  # Development Redis with exposed port
+  redis:
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+
+  # Hot reload for development
+  worker:
+    build:
+      target: development
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+      - WORKER_MODE=true
+    volumes:
+      - .:/app:cached
+    command: ["python", "-m", "app.worker", "--reload"]

@@ -1,0 +1,151 @@
+services:
+  - type: web
+    name: ennovatex-api
+    runtime: docker
+    plan: starter
+    region: oregon
+    branch: main
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 4
+    
+    # Health check
+    healthCheckPath: /health
+    
+    # Environment variables
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: info
+      - key: WORKERS
+        value: 4
+      - key: MAX_WORKERS
+        value: 8
+      - key: WORKER_TIMEOUT
+        value: 300
+      - key: KEEP_ALIVE
+        value: 2
+      - key: MAX_REQUESTS
+        value: 1000
+      - key: MAX_REQUESTS_JITTER
+        value: 100
+      - key: CORS_ORIGINS
+        value: https://ennovatex.vercel.app,https://www.ennovatex.com
+      - key: ALLOWED_HOSTS
+        value: ennovatex-api.onrender.com,api.ennovatex.com
+      
+      # Database (PostgreSQL)
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ennovatex-postgres
+          property: connectionString
+      
+      # Redis
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ennovatex-redis
+          property: connectionString
+      
+      # Secrets (set in Render dashboard)
+      - key: SECRET_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: HUGGINGFACE_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+    
+    # Auto-deploy
+    autoDeploy: true
+    
+    # Build settings
+    buildFilter:
+      paths:
+        - backend/**
+      ignoredPaths:
+        - frontend/**
+        - docs/**
+        - scripts/**
+
+databases:
+  - name: ennovatex-postgres
+    databaseName: ennovatex
+    user: ennovatex_user
+    plan: starter
+    region: oregon
+    postgresMajorVersion: 15
+    
+    # Backup settings
+    ipAllowList: []
+    
+# Redis service
+- type: redis
+  name: ennovatex-redis
+  plan: starter
+  region: oregon
+  maxmemoryPolicy: allkeys-lru
+  
+  # Redis configuration
+  ipAllowList: []
+  
+# Optional: Background worker service
+- type: worker
+  name: ennovatex-worker
+  runtime: docker
+  plan: starter
+  region: oregon
+  branch: main
+  rootDir: backend
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
+  dockerCommand: python -m app.worker
+  
+  # Environment variables (same as web service)
+  envVars:
+    - key: ENVIRONMENT
+      value: production
+    - key: DEBUG
+      value: false
+    - key: LOG_LEVEL
+      value: info
+    - key: WORKER_TYPE
+      value: background
+    
+    # Database and Redis connections
+    - key: DATABASE_URL
+      fromDatabase:
+        name: ennovatex-postgres
+        property: connectionString
+    - key: REDIS_URL
+      fromService:
+        type: redis
+        name: ennovatex-redis
+        property: connectionString
+    
+    # Secrets
+    - key: SECRET_KEY
+      sync: false
+    - key: HUGGINGFACE_API_KEY
+      sync: false
+    - key: OPENAI_API_KEY
+      sync: false
+  
+  # Auto-deploy
+  autoDeploy: true
+  
+  # Build settings
+  buildFilter:
+    paths:
+      - backend/**
+    ignoredPaths:
+      - frontend/**
+      - docs/**
+      - scripts/**

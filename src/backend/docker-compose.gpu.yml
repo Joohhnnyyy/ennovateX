@@ -1,0 +1,140 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      target: gpu
+    runtime: nvidia
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - USE_GPU=true
+      - GPU_MEMORY_FRACTION=0.8
+      - TORCH_CUDA_ARCH_LIST="6.0;6.1;7.0;7.5;8.0;8.6"
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./uploads:/app/uploads
+      - ./cache:/app/cache
+      - /usr/local/cuda:/usr/local/cuda:ro
+    command: ["python3.11", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+
+  # GPU-enabled worker for intensive ML tasks
+  worker:
+    build:
+      target: gpu
+    runtime: nvidia
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - USE_GPU=true
+      - GPU_MEMORY_FRACTION=0.6
+      - WORKER_MODE=true
+      - TORCH_CUDA_ARCH_LIST="6.0;6.1;7.0;7.5;8.0;8.6"
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./uploads:/app/uploads
+      - ./cache:/app/cache
+      - /usr/local/cuda:/usr/local/cuda:ro
+    command: ["python3.11", "-m", "app.worker"]
+
+  # GPU monitoring service
+  nvidia-smi:
+    image: nvidia/cuda:11.8-base-ubuntu20.04
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=utility
+    command: >
+      bash -c "while true; do
+        echo '=== GPU Status ===' &&
+        nvidia-smi &&
+        echo '=== GPU Memory Usage ===' &&
+        nvidia-smi --query-gpu=memory.used,memory.total --format=csv &&
+        sleep 60;
+      done"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [utility]
+    profiles:
+      - monitoring
+    networks:
+      - ennovatex-network
+    restart: unless-stopped
+
+  # TensorBoard for model monitoring (optional)
+  tensorboard:
+    image: tensorflow/tensorflow:latest-gpu
+    runtime: nvidia
+    container_name: ennovatex-tensorboard
+    ports:
+      - "6006:6006"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./logs/tensorboard:/logs
+      - ./models:/models:ro
+    command: tensorboard --logdir=/logs --host=0.0.0.0 --port=6006
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - ennovatex-network
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+# GPU-specific network configuration
+networks:
+  ennovatex-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1500
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
